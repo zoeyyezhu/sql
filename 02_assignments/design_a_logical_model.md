@@ -15,7 +15,11 @@ _Hint, search type 1 vs type 2 slowly changing dimensions._
 
 Bonus: Are there privacy implications to this, why or why not?
 ```
-Your answer...
+Type 1 Slowly Changing Dimension (Overwrite):
+Privacy Implications: Since this architecture overwrites the existing address with the new one, it reduces the risk of outdated or incorrect information being stored. However, if a customer updates their address due to privacy concerns or other sensitive reasons, the old address is immediately replaced with the new one, potentially making it more difficult to trace historical changes. While this can protect privacy by ensuring that only the latest information is stored, it also means that historical data, which might be relevant for auditing or legal purposes, is lost.
+Type 2 Slowly Changing Dimension (Retain Changes):
+Privacy Implications: This architecture retains historical addresses, which could pose privacy risks if not managed carefully. While it offers comprehensive tracking of address changes over time, it means that outdated personal information remains in the database alongside the latest information. This increases the risk of unauthorized access or misuse of outdated personal information, potentially leading to privacy breaches or identity theft. Additionally, the storage of historical addresses may be subject to data protection regulations, requiring organizations to ensure the security and confidentiality of this data.
+In summary, both architectures have privacy implications that need to be carefully considered and managed. The choice between them should take into account not only the organization's data management needs but also its obligations to protect customer privacy and comply with relevant data protection laws and regulations.
 ```
 
 ## Question 4
@@ -23,7 +27,11 @@ Review the AdventureWorks Schema [here](https://i.stack.imgur.com/LMu4W.gif)
 
 Highlight at least two differences between it and your ERD. Would you change anything in yours?
 ```
-Your answer...
+Adventureworks schema is highly complex and covers many domains. It includes a wide array of tables and relationships to manage different aspects of a large-scale business. My model is simpler and focused on a small bookstore. It includes only the essential tables for managing employees, customers, books, orders, sales, shifts, and dates.
+Adventureworks schema is highly normalized, with specialized tables for various functions. For example, there are separate tables for Person, Address, ContactType, EmailAddress, etc.
+Potential Change:1. I could normalize our address management by creating a separate CustomerAddress table to store customer addresses. This would align with the AdventureWorks approach and make our design more scalable and flexible. 2. HASH sensitive data for security. and request password for accessing
+
+
 ```
 
 # Criteria
